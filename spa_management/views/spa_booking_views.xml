@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="spa_booking_view_form" model="ir.ui.view">
+        <field name="name">spa.booking.view.form</field>
+        <field name="model">spa.booking</field>        
+        <field name="arch" type="xml">                   
+            <form>
+                <header>
+                    <!-- <button name="get_booking_count" string="Test" class="oe_highlight" type="object" /> -->
+					<!-- hidden by truongnn
+                    <button name="action_approve_booking" states="draft" string="Approve" class="oe_highlight" type="object" />
+                    <button name="action_reject_booking" states="draft" string="Reject" class="oe_highlight" type="object" />
+                    end by truongnn -->
+                    <!-- add by truongnn for add button confirm -->
+                    <button name="action_confirm_booking"  string="Confirm" class="oe_highlight " type="object" attrs="{'invisible': [('state','!=','draft')]}" />
+                    <!-- end by truongnn-->
+                    <!-- Modify by truongnn for change name button -->
+                    <button name="action_checkin_booking"  string="Check-in" class="oe_highlight" type="object" attrs="{'invisible': [('state','in',['draft','rejected','invoiced','checked-in'])]}" />
+                    <!-- end by truongnn -->   
+                    <!-- Add by thanhtd for add 'payment' button-->
+                    <button name="action_payment_booking"  string="Payment" class="oe_highlight" type="object" attrs="{'invisible': ['|',('order_ids','!=',False),('state','in',['rejected','invoiced','draft'])]}" />
+                    <!-- End by thanhtd -->	
+                    <!-- Modify by truongnn for disable reject button -->
+                    <button name="action_reject_booking"  string="Reject" class="oe_highlight " type="object" attrs="{'invisible': [('state','not in',['draft','confirmed'])]}"/>
+                    <!-- end by truongnn -->					
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,checked-in,rejected" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_order_view"  type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': [('state','not in',['checked-in','invoiced'])]}">
+                            <field name="count" widget="statinfo" string="Order" /> 
+                        </button>
+                    </div>
+                    <group >                        
+                        <group >
+                            <!-- Hidden by huyendm -->
+                            <!-- <field name="name" /> -->
+                            <!-- End by huyendm  -->
+							<!-- Added by thanhtd for booking subject -->
+                            <field name="subject" string=" " attrs="{'readonly':[('state','in',['rejected','checked-in'])]}"/>
+                            <!-- End by thanhtd -->											 
+                            <!-- Added by huyendm for adding customer -->                          
+                            <field name="customer_id" context="{
+                                        'default_phone': phone,
+                                        'default_email': email,
+                                    }"   attrs="{'readonly':[('state','in',['rejected','checked-in'])],'required':[('state','not in',['draft','rejected'])]}" 
+                                    options="{'no_quick_create': True}"
+                                    default_focus = "1"/>        
+                            <field name="customer_type" string="Customer Type" required="True"
+                             attrs="{'readonly':[('state','in',['rejected','checked-in','invoiced'])]}"/>						
+                            <!-- modify by truongnn for fix bug Wrong Previous Order value displayed after updating booking -->
+                            <!-- modify by truongnn for fix bug: values Order field will be not display if record contains customer_type select 'experience' or 'retail' and state ='rejected' or 'checked-in'  -->
+                            <field name="order_ids_domain" invisible="1"/>
+                            <field name="order_ids" options="{'no_open': True, 'no_create': True}" 
+                                domain="[('id', 'in', order_ids_domain)]" 
+                                attrs="{'readonly':['|',('customer_type','!=','use_previous_order'),('state','in',['rejected','checked-in'])]
+                                ,'required':[('customer_type','=','use_previous_order')]
+                                ,'invisible':['|',('customer_type','!=','use_previous_order'),('state','in',['checked-in','rejected'])]}"
+                                />
+                            <!-- end by truongnn-->
+                            <!-- <field name="service_ids" attrs="{'readonly': ['|',('customer_type','=','use_previous_order'),('state','in',['rejected','checked-in'])]}" options="{'no_open': True, 'no_create': True}"/> -->
+                            <field name="service_ids_domain" invisible="1"/>
+                            <field name="service_ids" domain="[('id', 'in', service_ids_domain)]" attrs="{'readonly': [('state','in',['rejected','checked-in'])]}" options="{'no_open': True, 'no_create': True}"/>
+                            <!-- End by thanhtd -->																			  																																			   
+                            <!-- End by huyendm -->					 
+                            <field name="quantity" attrs="{'readonly':['|',('customer_type','=','use_previous_order'),('state','in',['rejected','checked-in'])]}"  /> 
+                            <field name="undone_quantity" attrs="{'invisible':['|',('customer_type','!=','use_previous_order'),('order_ids','=',False)]}"/>                                                   
+                           
+                        </group>
+                        <group >
+                            <field name="date_start" widget="datetime" attrs="{'readonly':[('state','in',['rejected','checked-in'])]}"/>
+                            <field name="date_stop" widget="datetime" attrs="{'readonly':[('state','in',['rejected','checked-in'])]}"/>
+                            <field name="phone" attrs="{'readonly':['|',('order_ids','!=',False),('state','in',['rejected','checked-in'])]}"/>
+                            <field name="email" attrs="{'readonly':['|',('order_ids','!=',False),('state','in',['rejected','checked-in'])]}"/>
+                            <field name="partner_ids" placeholder="Select Staffs/Specialists..." widget="many2manyattendee" options="{'no_open': True, 'no_create': True}" attrs="{'readonly':[('state','in',['rejected','checked-in'])]}"/>                                                     
+                            <field name="language_id" invisible="1" />
+                            <field name="location" string="Location" required="True" attrs="{'readonly':[('state','in',['rejected','checked-in'])]}"/>
+                            <field name="remark"/>
+                        </group>
+                        <group string="SALES">
+                            <!-- Added by thanhtd for booking Salesperson, Sales Team --> 
+                            <field name="user_id" widget="many2one_avatar_user" attrs="{'readonly': ['|',('order_ids','!=',False),('state','in',['rejected','checked-in'])]}"/>
+                            <field name="team_id" attrs="{'readonly': ['|',('order_ids','!=',False),('state','in',['rejected','checked-in'])]}"/>
+                            <!-- End by thanhtd --> 
+                            <field name="company_id" readonly="1"  />
+                        </group>
+                        <group string="TRACKING">
+                            <field name="creator" readonly="1" />
+                            <field name="source_id" attrs="{'readonly':[('state','in',['rejected','checked-in'])]}"/>  
+                                                   
+                        </group>
+                       
+                    </group>
+                </sheet>
+            </form>
+       
+        </field>
+    </record>
+    <record id="spas_booking_view_tree" model="ir.ui.view">
+        <field name="name">spa.booking.view.tree</field>
+        <field name="model">spa.booking</field>        
+        <field name="arch" type="xml">
+            
+			<!-- Modify by truongnn for soft decs list booking -->
+            <tree decoration-info="state == 'draft'" default_order="date_start desc">
+                <!-- end by truongnn -->
+                 <!-- Hide by truongnn for not display Appointment field -->
+                <!-- <field name="name" string= "Appointment"/> -->
+                <!-- end by truongnn -->
+                <!-- Added by thanhtd for customer display on list booking screen -->
+                <field name="customer_display" string = "Customer"/>
+                <!-- End by thanhtd -->							   
+                <!-- add by truongnn display Phone, Service, Company fields -->
+                <field name="phone" string="Phone" optional="show"/>
+                <field name="customer_type" optional="show"/>    
+                <field name="order_ids" optional="show"/>   
+                <field name="quantity" optional="show"/>   
+                <field name="undone_quantity" optional="show"/>         
+                <field name="location" optional="show"/>
+                <field name="service_ids" string="Service"/>
+                <field name="partner_ids" widget="many2many_tags" optional="show"/>
+                <field name="company_id" string ="Company" optional="hide"/>
+                <!-- end by truongnn -->                
+                <field name="date_start" optional="show"/>
+                <field name="date_stop" optional="hide"/>
+                <field name="create_date" string="Create Date" optional="hide"/>
+                <!-- <field name="state" /> -->
+                <field name="state"                    
+                    decoration-it ="state == 'draft'"
+                    decoration-info ="state == 'confirmed'"
+                    decoration-primary ="state == 'checked-in'" 
+                    decoration-success ="state == 'invoiced'" 
+                    decoration-danger ="state == 'rejected'"
+                    widget="badge" optional="show"/>
+                <button name="action_checkin_booking" string="Check-in" class="oe_highlight" type="object" attrs="{'invisible': [('state','in',['rejected','checked-in','invoiced','draft'])]}"/>
+                <button name="action_payment_booking"  string="Payment" class="oe_highlight" type="object" attrs="{'invisible': ['|',('order_ids','!=',False),('state','in',['rejected','invoiced','draft'])]}" />
+                
+            </tree>
+              
+        </field>
+    </record>
+
+    <record id="spa_booking_action" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="res_model">spa.booking</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <!-- Added by thanhtd for filtering booking/order list by selected company -->
+        <field name="domain">[('company_id', 'in', allowed_company_ids)]</field>
+        <!-- End by thanhtd -->
+    </record>
+
+<!--calendar code region-->
+    <record id="spa_service_view_calendar" model="ir.ui.view">
+        <field name="name">spa.service.calendar</field>
+        <field name="model">spa.booking</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendar Bookings"
+                        date_start="date_start"
+                        date_stop="date_stop"
+                        event_open_popup="true"
+                        mode="day"
+                        quick_add="False"
+                        color="partner_ids">
+                <!-- add by truongnn for display customer, phone in popup infomation mode day, week, month -->
+                <field name='customer_id'/>
+                <field name='phone'/>
+                <!-- end by truongnn -->	
+                <field name="service_ids" />
+                <field name="customer_type"/>
+                <field name="location"/>
+                <field name="state"/>
+
+                <field name="partner_ids" options="{'block': True, 'icon': 'fa fa-users'}"
+                        filters="1" widget="many2manyattendee" write_model="spa.booking.filter"
+                        write_field="partner_id" filter_field="partner_checked" avatar_field="avatar_128"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_spa_service_request" model="ir.actions.act_window">
+        <field name="name">Calendar Bookings</field>
+        <field name="res_model">spa.booking</field>
+        <!--<field name="view_mode">calendar,tree,form,kanban,pivot,graph</field>-->
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to Create a New Record.
+            </p>
+        </field>
+    </record>
+<!--end calendar code region-->
+
+<!-- Display kanban view in booking list screen -->
+<!-- <record id="spa_booking_view_kanban" model="ir.ui.view">
+    <field name="name">spa.booking.view.kanban</field>
+    <field name="model">spa.booking</field>
+    <field name="arch" type="xml">
+        
+        <kanban default_group_by="booking_stage_id" class="o_kanban_small_column" quick_create="false" on_create="quick_create"  >
+           										
+            <field name = "color" />
+            <field name = "booking_stage_id" />
+            <field name = "order_ids" invisible="1"/>
+            <field name = "state" invisible="1"/>
+            <templates>
+                <t t-name = "kanban-box">
+                    <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click">
+                        <div class="o_dropdown_kanban dropdown">
+                            <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                <span class="fa fa-ellipsis-v" />
+                            </a>
+                            <div class="dropdown-menu" role="menu">
+                                <t t-if="widget.editable">
+                                    <a role="menuitem" type="edit" class="dropdown-item">Edit...</a>
+                                </t>
+                                <t t-if="widget.deletable">
+                                    <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                </t>
+                                <ul class="oe_kanban_colorpicker" data-field="color" />
+                            </div>
+                        </div>
+                        <div class="oe_kanban_content">
+                            <div>
+                                <strong>
+                                    <field name="name" />
+                                </strong>
+                            </div>
+                            
+                            <div class = "text-muted">
+                                <a>Customer: </a>
+                                <field name="customer_id" />                                
+                            </div>
+                            <div class = "text-muted">
+                                <a>Customer Type: </a>
+                                <field name="customer_type" />
+                            </div>
+ 
+                            <div class = "text-muted">                                      
+                                <a>Service: </a>
+                                <field name="service_ids" />                                                                   											  
+                            </div>
+                            <div class = "text-muted">
+                                <a>Duration: </a>
+                                <field name="duration_id" />
+                            </div>
+                           
+                            <div class = "text-muted">                                      
+                                <a>Quantity: </a>
+                                <field name="times" />                                                             											  
+                            </div>
+                            <div class = "text-muted">                                      
+                                <a>Undone Quantity: </a>                                       
+                                <field name="undone_quantity" />                                                                        											  
+                            </div>
+                            <div class = "text-muted">                                      
+                                <a>Location: </a>                                       
+                                <field name="location" />                                                                      											  
+                            </div>
+                           
+                            <div class = "text-muted">
+                                <a>Create Date: </a>
+                                <field name="create_date" />
+                            </div>
+                            
+                        </div>
+                        <div class="oe_clear" />
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record> -->
+
+</odoo>

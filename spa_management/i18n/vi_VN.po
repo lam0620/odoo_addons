@@ -1,0 +1,1123 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spa_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20230328\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-15 07:40+0000\n"
+"PO-Revision-Date: 2023-06-15 07:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spa_management
+#: model:mail.template,body_html:spa_management.mail_template_spa_rejected
+msgid ""
+"<div>\n"
+"                    <p>Dear <t t-out=\"object.name\"/>,<br/>\n"
+"                    Thank you for choosing <t t-out=\"object.company_id.name\"/>, but your booking was rejected!<br/>\n"
+"                    There is no seats available for the time you chosen.<br/>\n"
+"                    Better luck next time.<br/><br/></p>\n"
+"                    Regards,<br/>\n"
+"                    <t t-out=\"object.company_id.name\"/>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: spa_management
+#: model:mail.template,body_html:spa_management.mail_template_spa_approved
+msgid ""
+"<div>\n"
+"                    <p>Dear <t t-out=\"object.name\"/>,<br/>\n"
+"                    Thank you for choosing <t t-out=\"object.company_id.name\"/>, your booking was registered!<br/><br/></p>\n"
+"                    Regards,<br/>\n"
+"                    <t t-out=\"object.company_id.name\"/>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_website_sale_booking_templates
+msgid ""
+"<i class=\"fa fa-shopping-cart me-2\"/>\n"
+"                    <span style=\"font-weight: bold\">ADD TO CART</span>"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "<span class=\"label-status\">Available</span>"
+msgstr "<span class=\"label-status\">Còn chỗ</span>"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "<span class=\"label-status\">Booked</span>"
+msgstr "<span class=\"label-status\">Hết chỗ</span>"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "<span class=\"label-status\">Unbookable</span>"
+msgstr "<span class=\"label-status\">Không thể đặt</span>"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_website_sale_booking_templates
+msgid "<span style=\"font-weight: bold\">BOOK NOW</span>"
+msgstr "Đặt lịch ngay"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "<strong>Total</strong>"
+msgstr "<strong>Tổng</strong>"
+
+#. module: spa_management
+#: model:ir.model.constraint,message:spa_management.constraint_spa_booking_filter_user_id_partner_id_unique
+msgid "A user cannot have the same contact twice."
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__active
+#: model_terms:ir.ui.view,arch_db:spa_management.hr_employee_view_form
+msgid "Active"
+msgstr "Kích hoạt"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__active_booking_chairs
+msgid "Active booking chairs"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Any"
+msgstr "Ngẫu nhiên"
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__location__home
+msgid "At Home"
+msgstr "Tại Nhà"
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__location__spa
+msgid "At Spa"
+msgstr "Tại Spa"
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_product_attribute_value
+msgid "Attribute Value"
+msgstr "Giá trị thuộc tính"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "BOOKING"
+msgstr "Thông tin đặt lịch"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Book"
+msgstr "Đặt ngay"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.view_partner_form
+msgid "Booking"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_res_config_settings__spa_booking_chair_ids
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_config_settings_view_form
+msgid "Booking Chairs"
+msgstr "Đặt ghế"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_config_settings_view_form
+msgid "Booking Chairs(Choose the chair when its free)"
+msgstr "Đặt ghế (Chọn ghế đang còn trống)"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Booking Date"
+msgstr "Đặt ngày"
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/controllers/main_booking_service.py:0
+#: code:addons/spa_management/controllers/main_booking_service.py:0
+#, python-format
+msgid "Booking Date and Time must be greater than current date time."
+msgstr "Ngày giờ đặt lịch phải lớn hơn ngày giờ hiện tại"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.view_partner_form
+msgid "Booking History"
+msgstr "Lịch sử đặt lịch Spa"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_sale_order__booking_id
+msgid "Booking Id"
+msgstr ""
+
+#. module: spa_management
+#. odoo-javascript
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: model:ir.actions.act_window,name:spa_management.spa_booking_action
+#: model:ir.ui.menu,name:spa_management.spa_booking_menu_action
+#, python-format
+msgid "Bookings"
+msgstr "Lịch hẹn"
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__customer_type__break_time
+msgid "Break Time"
+msgstr "Nghỉ ca"
+
+#. module: spa_management
+#: model:ir.ui.menu,name:spa_management.spa_calendar_menu_action
+msgid "Calendar"
+msgstr "Lịch"
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.action_spa_service_request
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_service_view_calendar
+msgid "Calendar Bookings"
+msgstr "Lịch hẹn"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_product_product__available_booking
+#: model:ir.model.fields,field_description:spa_management.field_product_template__available_booking
+#: model_terms:ir.ui.view,arch_db:spa_management.product_template_service_search_view
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_product_service_view_form
+msgid "Can be Booked"
+msgstr "Có thể đặt lịch được"
+
+#. module: spa_management
+#. odoo-javascript
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#, python-format
+msgid "Chair Orders"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__chair_id
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__name
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__spa_chair_id
+msgid "Chair/Bed"
+msgstr "Ghế/Giường"
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_chair_action
+#: model:ir.ui.menu,name:spa_management.spa_chair_menu_action
+msgid "Chairs/Beds"
+msgstr "Ghế/Giường"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+#: model_terms:ir.ui.view,arch_db:spa_management.spas_booking_view_tree
+msgid "Check-in"
+msgstr "Khách vào"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__partner_checked
+msgid "Checked"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__state__checked-in
+msgid "Checked-in"
+msgstr "Khách đã vào"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__read_only_checker
+msgid "Checker"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.actions.act_window,help:spa_management.action_spa_service_request
+msgid "Click to Create a New Record."
+msgstr ""
+
+#. module: spa_management
+#. odoo-javascript
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#, python-format
+msgid "Clients"
+msgstr "Khách hàng"
+
+#. module: spa_management
+#: model:ir.actions.server,name:spa_management.ir_cron_collections_today_ir_actions_server
+#: model:ir.cron,cron_name:spa_management.ir_cron_collections_today
+msgid "Collection Today"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__company_id
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__company_id
+#: model_terms:ir.ui.view,arch_db:spa_management.spas_booking_view_tree
+msgid "Company"
+msgstr "Công ty"
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_res_config_settings
+msgid "Config Settings"
+msgstr "Cấu hình"
+
+#. module: spa_management
+#: model:ir.ui.menu,name:spa_management.spa_management_settings_menu_root
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__state__confirmed
+msgid "Confirmed"
+msgstr "Đã xác nhận"
+
+#. module: spa_management
+#: model:mail.template,subject:spa_management.mail_template_spa_approved
+msgid "Congrats {{ object.name }}"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_res_partner
+msgid "Contact"
+msgstr "Danh bạ"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spas_booking_view_tree
+msgid "Create Date"
+msgstr "Ngày tạo"
+
+#. module: spa_management
+#: model_terms:ir.actions.act_window,help:spa_management.spa_discount_action
+#: model_terms:ir.actions.act_window,help:spa_management.spa_ewallet_action
+msgid "Create a new one from scratch, or use one of the templates below."
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__create_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__create_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__create_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__create_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday__create_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__create_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_sequence_updater__create_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__create_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__create_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__create_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__create_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday__create_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__create_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_sequence_updater__create_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__create_date
+msgid "Created on"
+msgstr "Ngày tạo"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__creator
+msgid "Creator"
+msgstr "Người tạo"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__customer_id
+#: model_terms:ir.ui.view,arch_db:spa_management.spas_booking_view_tree
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__customer_display
+msgid "Customer Display"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__customer_type
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+msgid "Customer Type"
+msgstr "Loại khách hàng"
+
+#. module: spa_management
+#: model:ir.ui.menu,name:spa_management.spa_customers_menu_action
+msgid "Customers"
+msgstr "Khách hàng"
+
+#. module: spa_management
+#: model:ir.ui.menu,name:spa_management.spa_dashboard_menu_action
+msgid "Dashboard"
+msgstr "Bảng thông tin"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__date
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__time_start
+msgid "Date"
+msgstr "Ngày tạo"
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/models/res_partner.py:0
+#: code:addons/spa_management/models/res_partner.py:0
+#, python-format
+msgid ""
+"Delete failed because the partner is referenced by Employee.\n"
+"Referencing table: spa_booking"
+msgstr ""
+"Xóa không thành công vì đối tác này được tham chiếu bởi Nhân viên.\n"
+"Bảng tham chiếu: spa_booking"
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/models/res_partner.py:0
+#: code:addons/spa_management/models/res_partner.py:0
+#, python-format
+msgid ""
+"Delete failed because the partner is referenced by Spa's booking.\n"
+"Referencing table: spa_booking"
+msgstr ""
+"Xóa không thành công vì đối tác này được tham chiếu bởi đặt lịch của Spa.\n"
+"Bảng tham chiếu: spa_booking"
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/models/res_users.py:0
+#: code:addons/spa_management/models/res_users.py:0
+#, python-format
+msgid ""
+"Delete failed because the staff is referenced by Spa's booking.\n"
+"Referencing table: spa_booking"
+msgstr ""
+"Xóa không thành công vì nhân viên này được tham chiếu bởi đặt lịch của Spa.\n"
+"Bảng tham chiếu: spa_booking"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__count
+msgid "Delivery Orders"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_discount_action
+#: model:ir.ui.menu,name:spa_management.spa_discount_menu_action
+msgid "Discount & Loyalty"
+msgstr "Chiết khấu & Khách hàng thân thiết"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__display_name
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__display_name
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__display_name
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__display_name
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday__display_name
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__display_name
+#: model:ir.model.fields,field_description:spa_management.field_spa_sequence_updater__display_name
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_sale_order_line__done_qty
+msgid "Done Qty"
+msgstr "Số lần đã thực hiện"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.sale_order_view_form
+msgid "Done Quantity"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__state__draft
+msgid "Draft"
+msgstr "Bản nháp"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__email
+msgid "E-Mail"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Email"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_hr_employee
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__partner_id
+msgid "Employee"
+msgstr "Nhân viên"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__end_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__to_time
+msgid "End Time"
+msgstr "Thời gian kết thúc"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__date_stop
+msgid "End time"
+msgstr "Thời gian kết thúc"
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/models/spa_booking.py:0
+#: code:addons/spa_management/models/spa_booking.py:0
+#, python-format
+msgid "End time must be after Start time"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Enter email"
+msgstr "Nhập email"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Enter full name"
+msgstr "Nhập họ và tên"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Enter phone"
+msgstr "Nhập số điện thoại"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Enter request"
+msgstr "Nhập yêu cầu khác"
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__customer_type__experience
+msgid "Experience"
+msgstr "Trải nghiệm"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Full name"
+msgstr "Họ và tên"
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_ewallet_action
+#: model:ir.ui.menu,name:spa_management.spa_ewallet_menu_action
+msgid "Gift cards & eWallet"
+msgstr "Thẻ quà tặng & Ví điện tử"
+
+#. module: spa_management
+#: model:ir.module.category,description:spa_management.module_category_spa_management
+msgid "Helps you handle your spa needs"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday__holiday
+msgid "Holiday"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_res_config_settings__spa_holiday_ids
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_config_settings_view_form
+msgid "Holidays"
+msgstr "Ngày nghỉ"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__id
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__id
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__id
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__id
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday__id
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__id
+#: model:ir.model.fields,field_description:spa_management.field_spa_sequence_updater__id
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__id
+msgid "ID"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,help:spa_management.field_spa_booking__customer_id
+msgid ""
+"If the customer is a regular customer, \n"
+"        then you can add the customer in your database"
+msgstr ""
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/controllers/main_booking_service.py:0
+#: code:addons/spa_management/controllers/main_booking_service.py:0
+#, python-format
+msgid "Invalid Email! Please enter a valid email address."
+msgstr "Email không hợp lệ! Vui lòng điền một email hợp lệ."
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/controllers/main_booking_service.py:0
+#: code:addons/spa_management/controllers/main_booking_service.py:0
+#, python-format
+msgid "Invalid Phone! Please enter a valid phone number."
+msgstr "Số điện thoại không hợp lệ! Vui lòng điền số điện thoại hợp lệ"
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/models/spa_booking.py:0
+#: code:addons/spa_management/models/spa_booking.py:0
+#, python-format
+msgid "Invalid fields:"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__state__invoiced
+msgid "Invoiced"
+msgstr "Đã tạo hóa đơn"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_res_partner__partner_spa
+#: model:ir.model.fields,field_description:spa_management.field_res_users__partner_spa
+msgid "Is a Spa Partner"
+msgstr "Là khách hàng của Spa"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__language_id
+msgid "Language"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking____last_update
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter____last_update
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair____last_update
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user____last_update
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday____last_update
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times____last_update
+#: model:ir.model.fields,field_description:spa_management.field_spa_sequence_updater____last_update
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__write_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__write_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__write_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__write_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday__write_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__write_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_sequence_updater__write_uid
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__write_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__write_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__write_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__write_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday__write_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__write_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_sequence_updater__write_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__location
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+msgid "Location"
+msgstr "Địa điểm"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking_filter__user_id
+msgid "Me"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__name
+#: model:ir.model.fields,field_description:spa_management.field_spa_holiday__name
+msgid "Name"
+msgstr "Tên đơn hàng"
+
+#. module: spa_management
+#: model_terms:ir.actions.act_window,help:spa_management.spa_ewallet_action
+msgid "No loyalty program found."
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.actions.act_window,help:spa_management.spa_discount_action
+msgid "No program found."
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__number_of_orders
+msgid "No.of Orders"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+msgid "Order"
+msgstr "Đơn hàng"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_sale_order__order_process_times_ids
+msgid "Order Process Times"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.ui.menu,name:spa_management.spa_management_spa_root
+#: model:ir.ui.menu,name:spa_management.spa_order_menu_action
+msgid "Orders"
+msgstr "Đơn hàng"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Other request"
+msgstr "Yêu cầu khác"
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/models/spa_booking.py:0
+#: code:addons/spa_management/models/spa_booking.py:0
+#, python-format
+msgid "Over quantity!"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+#: model_terms:ir.ui.view,arch_db:spa_management.spas_booking_view_tree
+msgid "Payment"
+msgstr "Thanh toán"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__phone
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+#: model_terms:ir.ui.view,arch_db:spa_management.spas_booking_view_tree
+msgid "Phone"
+msgstr "Số điện thoại"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__order_ids
+msgid "Previous Order"
+msgstr "Phiếu"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__order_ids_domain
+msgid "Previous Order Domain"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Price"
+msgstr "Giá"
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_product_template
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_products_action
+#: model:ir.ui.menu,name:spa_management.spa_products_menu_action
+#: model:ir.ui.menu,name:spa_management.spa_products_menu_root
+msgid "Products"
+msgstr "Sản phẩm"
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__quantity
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+msgid "Reject"
+msgstr "Từ chối"
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__state__rejected
+msgid "Rejected"
+msgstr "Đã từ chối"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__remark
+msgid "Remark"
+msgstr "Ghi chú"
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__customer_type__retail
+msgid "Retail"
+msgstr "Khách lẻ"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+msgid "SALES"
+msgstr "Bán hàng"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__spa_order_id
+msgid "Sale Order"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__spa_order_line_id
+msgid "Sale Order Line"
+msgstr ""
+
+#. module: spa_management
+#. odoo-javascript
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/xml/spa_dashboard.xml:0
+#: code:addons/spa_management/static/src/xml/spa_dashboard.xml:0
+#, python-format
+msgid "Sales"
+msgstr "Bán hàng"
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_sale_order
+msgid "Sales Order"
+msgstr "Đơn bán hàng"
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Mục đơn bán hàng"
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_order_action
+msgid "Sales Orders"
+msgstr "Đơn hàng"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__team_id
+msgid "Sales Team"
+msgstr "Đội ngũ bán hàng"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__user_id
+msgid "Salesperson"
+msgstr "Nhân viên kinh doanh"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.sale_order_view_form
+msgid "Select Services..."
+msgstr "Chọn dịch vụ..."
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+msgid "Select Staffs/Specialists..."
+msgstr "Chọn nhân viên/kỹ thuật viên"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Selected DateTime"
+msgstr "Thời gian đã chọn"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__times_no
+msgid "Sequence"
+msgstr "Lần"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_sale_order__product_id_display
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__service_ids
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__product_id
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+#: model_terms:ir.ui.view,arch_db:spa_management.spas_booking_view_tree
+msgid "Service"
+msgstr "Dịch vụ"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_sale_order__product_id_domain
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__service_ids_domain
+msgid "Service Domain"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_services_action
+#: model:ir.ui.menu,name:spa_management.spa_services_menu_action
+msgid "Services"
+msgstr "Dịch vụ"
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_config_settings_action
+#: model:ir.ui.menu,name:spa_management.spa_config_settings_menu_action
+msgid "Settings"
+msgstr "Thiết lập"
+
+#. module: spa_management
+#. odoo-python
+#: code:addons/spa_management/controllers/main_booking_service.py:0
+#: code:addons/spa_management/controllers/main_booking_service.py:0
+#, python-format
+msgid "Some required fields are empty."
+msgstr "Một số trường bắt buộc vẫn đang để trống."
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__source_id
+msgid "Source"
+msgstr "Nguồn"
+
+#. module: spa_management
+#: model:ir.ui.menu,name:spa_management.spa_management_menu_root
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_config_settings_view_form
+msgid "Spa"
+msgstr ""
+
+#. module: spa_management
+#: model:mail.template,name:spa_management.mail_template_spa_approved
+msgid "Spa Approved E-mail"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_spa_booking
+msgid "Spa Booking"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_spa_chair
+msgid "Spa Chair"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__chair_created_user
+msgid "Spa Chair Created User"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_spa_chair_user
+msgid "Spa Chair User"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.sale_order_view_form
+msgid "Spa Check-in Info"
+msgstr "Spa - Thông tin sử dụng"
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_spa_holiday
+msgid "Spa Holiday"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.actions.client,name:spa_management.spa_action_dashboard
+#: model:ir.module.category,name:spa_management.module_category_spa_management
+msgid "Spa Management"
+msgstr "Quản lý Spa"
+
+#. module: spa_management
+#: model:res.groups,name:spa_management.group_spa_manager
+msgid "Spa Manager"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_spa_order_process_times
+msgid "Spa Order Process Times"
+msgstr ""
+
+#. module: spa_management
+#: model:mail.template,name:spa_management.mail_template_spa_rejected
+msgid "Spa Rejected E-mail"
+msgstr ""
+
+#. module: spa_management
+#: model:res.groups,name:spa_management.group_spa_user
+msgid "Spa Sale User"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_sequence_updater__spa_sequence
+msgid "Spa Sequence"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_spa_sequence_updater
+msgid "Spa Sequence Updater"
+msgstr ""
+
+#. module: spa_management
+#: model:product.template,name:spa_management.spa_service_product_01
+msgid "Spa Service"
+msgstr "Dịch vụ Spa"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_chair_view_form
+msgid "Spa User Lines"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_spa_working_hours
+msgid "Spa Working Hours"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_spa_booking_filter
+msgid "Spa booking Filters"
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__partner_id
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Staff/Specialist"
+msgstr "Kỹ thuật viên"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__partner_ids
+#: model:ir.model.fields,field_description:spa_management.field_spa_order_process_times__partner_ids
+msgid "Staffs/Specialists"
+msgstr "Kỹ thuật viên"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__start_date
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__from_time
+msgid "Start Time"
+msgstr "Thời gian bắt đầu"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__date_start
+msgid "Start time"
+msgstr "Thời gian bắt đầu"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__subject
+msgid "Subject"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Subtotal"
+msgstr "Thành tiền"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_view_form
+msgid "TRACKING"
+msgstr "Theo vết"
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_thank_you
+msgid "Thank you for your booking"
+msgstr "Cám ơn quý khách đã đặt lịch hẹn"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__total_time_taken_chair
+msgid "Time Reserved(Hrs)"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_form
+msgid "Time Slot"
+msgstr "Khung giờ"
+
+#. module: spa_management
+#. odoo-javascript
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#, python-format
+msgid "Today's Bookings"
+msgstr "Lịch hẹn hôm nay"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__collection_today
+msgid "Today's Collection"
+msgstr ""
+
+#. module: spa_management
+#. odoo-javascript
+#: code:addons/spa_management/static/src/xml/spa_dashboard.xml:0
+#: code:addons/spa_management/static/src/xml/spa_dashboard.xml:0
+#, python-format
+msgid "Today's bookings"
+msgstr "Lịch hẹn hôm nay"
+
+#. module: spa_management
+#. odoo-javascript
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/js/spa_dashboard.js:0
+#: code:addons/spa_management/static/src/xml/spa_dashboard.xml:0
+#: code:addons/spa_management/static/src/xml/spa_dashboard.xml:0
+#, python-format
+msgid "Total Orders"
+msgstr "Tổng đơn hàng"
+
+#. module: spa_management
+#. odoo-javascript
+#: code:addons/spa_management/static/src/xml/spa_dashboard.xml:0
+#: code:addons/spa_management/static/src/xml/spa_dashboard.xml:0
+#, python-format
+msgid "Total bookings"
+msgstr "Tổng lịch hẹn"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_booking__undone_quantity
+msgid "Undone Quantity"
+msgstr "Số lượng còn lại"
+
+#. module: spa_management
+#: model:ir.model.fields.selection,name:spa_management.selection__spa_booking__customer_type__use_previous_order
+msgid "Use Previous Order"
+msgstr "Sử dụng phiếu"
+
+#. module: spa_management
+#: model:ir.model,name:spa_management.model_res_users
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__user_id
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair_user__user_id
+msgid "User"
+msgstr "Người dùng"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_chair__user_line
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_chair_view_form
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_variants_action
+#: model:ir.ui.menu,name:spa_management.spa_variants_menu_action
+msgid "Variants"
+msgstr "Biến thể"
+
+#. module: spa_management
+#: model:mail.template,subject:spa_management.mail_template_spa_rejected
+msgid "We are Sorry {{ object.name }}"
+msgstr ""
+
+#. module: spa_management
+#: model_terms:ir.ui.view,arch_db:spa_management.spa_booking_service_thank_you
+msgid ""
+"We will check availability, and then we will contact you to confirm it "
+"within a few minutes."
+msgstr "Chúng tôi sẽ kiểm tra lại và liên lạc với quý khách để xác nhận."
+
+#. module: spa_management
+#: model:ir.actions.act_window,name:spa_management.spa_working_hours_action
+#: model:ir.ui.menu,name:spa_management.spa_working_hours_menu_action
+msgid "Working Hours"
+msgstr "Giờ làm việc"
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_spa_working_hours__name
+msgid "Working time"
+msgstr "Tên đơn hàng"
+
+#. module: spa_management
+#: model:ir.model.fields,help:spa_management.field_spa_chair__user_id
+msgid ""
+"You can select the user from the Users Tab. \n"
+"        Last user from the Users Tab will be selected as the Current User."
+msgstr ""
+
+#. module: spa_management
+#: model:ir.model.fields,field_description:spa_management.field_res_partner__spa_booking_ids
+#: model:ir.model.fields,field_description:spa_management.field_res_users__spa_booking_ids
+msgid "bookings"
+msgstr ""

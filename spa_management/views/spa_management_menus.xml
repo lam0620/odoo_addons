@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Spa menu-->    
+        <menuitem id="spa_management_menu_root" name="Spa"
+                  groups="spa_management.group_spa_user"
+                  action="spa_action_dashboard"
+                  web_icon="spa_management,static/description/icon.png"/>
+
+        <!--Dashboard menuitem-->                  
+        <menuitem id="spa_dashboard_menu_action" name="Dashboard" parent="spa_management_menu_root" action="spa_action_dashboard" sequence="-100" />
+
+        <!--Calendar menuitem-->
+        <menuitem id="spa_calendar_menu_action" name="Calendar" parent="spa_management_menu_root" action="action_spa_service_request" sequence="0" />
+
+        <!--Orders menuitem-->                  
+        <menuitem id="spa_management_spa_root" name="Orders" parent="spa_management_menu_root" sequence="10" />
+<!--                  
+        <menuitem id="spa_service_menu_action"
+                  parent="spa_management_spa_root"
+                  action="spa_service_action"/>
+-->
+        <menuitem id="spa_booking_menu_action" name="Bookings"
+                  parent="spa_management_spa_root"
+                  action="spa_booking_action"
+                  sequence="1" />
+        <menuitem id="spa_order_menu_action"
+                  parent="spa_management_spa_root" name="Orders"
+                  action="spa_order_action"
+                  sequence="5" />
+        <menuitem id="spa_customers_menu_action"
+                  action="base.action_partner_customer_form"
+                  parent="spa_management_spa_root" name="Customers"
+                  sequence="9" />
+
+        <!-- Products menuitem -->
+        <menuitem id="spa_products_menu_root" name="Products" parent="spa_management_menu_root" sequence="20" />
+        <menuitem id="spa_products_menu_action"
+                  parent="spa_products_menu_root"
+                  name="Products" action="spa_products_action"
+                  sequence="1" />
+        <menuitem id="spa_services_menu_action"
+                  parent="spa_products_menu_root"
+                  name="Services" action="spa_services_action"
+                  sequence="3" />
+
+        <menuitem id="spa_variants_menu_action"
+                  parent="spa_products_menu_root"
+                  name="Variants" action="spa_variants_action"
+                  sequence="4" />  
+
+        <menuitem id="spa_discount_menu_action"
+                  parent="spa_products_menu_root"
+                  name="Discount &amp; Loyalty" action="spa_discount_action"
+                  sequence="6" />                  
+
+        <menuitem id="spa_ewallet_menu_action"
+                  parent="spa_products_menu_root"
+                  name="Gift cards &amp; eWallet" action="spa_ewallet_action"
+                  sequence="8" />   
+
+        <!--Configuration menuitem-->
+        <menuitem id="spa_management_settings_menu_root" parent="spa_management_menu_root" name="Configuration" sequence="30" />
+        <menuitem id="spa_chair_menu_action" name="Chairs/Beds"
+                  parent="spa_management_settings_menu_root"
+                  action="spa_chair_action"
+                  sequence="1"/>
+        <menuitem id="spa_working_hours_menu_action"
+                  parent="spa_management_settings_menu_root"
+                  name="Working Hours" action="spa_working_hours_action"
+                  sequence="5"/>
+        <menuitem id="spa_config_settings_menu_action"
+                  parent="spa_management_settings_menu_root" name="Settings"
+                  action="spa_config_settings_action"
+                  sequence="9"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,143 @@
+.chair_box_website {
+  text-align: center;
+  border: 1px solid #666;
+  padding: 10px 15px;
+  box-shadow: 7px 8px 5px #888888;
+  background-color: #337ab7;
+  color: #000000;
+}
+.field_booking_chair {
+  font-weight: bold;
+}
+input[type="text"] {
+  width: 100%;
+}
+input[type="email"] {
+  width: 100%;
+}
+input[type="checkbox"] + label {
+  color: #7c7bad;
+  font-style: italic;
+}
+input[type="checkbox"]:checked + label {
+  color: #00a09d;
+  font-style: normal;
+}
+select {
+  width: 100%;
+}
+.selection_service {
+  height: 6em;
+  overflow: auto;
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+  background-color: #fcfcfc;
+}
+#booking_chair_details {
+  height: 200px !important;
+  text-align: center;
+  border: 1px solid #666;
+  padding: 15px 0px;
+  box-shadow: 7px 8px 5px #888888;
+  background-color: #7c7bad;
+  border-radius: 58px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+
+
+.ui-datepicker {
+  /* height: 20%; */
+  padding: 0.2em 0.2em 0;
+  width: 100% !important;
+}     
+.ui-datepicker td {
+  padding:0
+}
+
+/* Full grid border */
+.ui-datepicker-calendar td {
+  border: 1px solid #D8D8D8 !important;
+}
+
+/* Remove the inner atag border */
+.ui-state-default {
+  border: 0px !important;
+}
+
+#timeslots {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+#timeslots li {
+  margin: 0 5px 5px 0;
+}
+
+#timeslots input[type="radio"] {
+  display: none;
+}
+
+#timeslots label {
+  display: block;
+  width: 100px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+  color: #714B67;
+  font-size: 14px;
+  font-weight: 500;
+  cursor:not-allowed;
+}
+
+#timeslots input[type="radio"] + label span.label-status {
+  display: block;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+#timeslots input[type="radio"]:checked + label {
+  background-color: #357EC7;
+  color: #fff;
+}
+
+#timeslots label.available {
+  cursor: pointer;
+}
+
+#timeslots li.booked {
+  background-color: #C0C0C0;
+}
+
+#timeslots li.booked label span.label-status {
+  color: #757a7a;
+  display: block;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+#timeslots li.unbookable {
+  background-color: #D3D3D3;
+}
+
+#timeslots li.unbookable label span.label-status {
+  color: #757a7a;
+  display: block;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.spinner-loading {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}

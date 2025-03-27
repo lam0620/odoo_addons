@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <data noupdate="1">
+
+        <record id="spa_working_01" model="spa.working.hours">
+            <field name="name">Sunday</field>
+        </record>
+        <record id="spa_working_02" model="spa.working.hours">
+            <field name="name">Monday</field>
+        </record>
+        <record id="spa_working_03" model="spa.working.hours">
+            <field name="name">Tuesday</field>
+        </record>
+        <record id="spa_working_04" model="spa.working.hours">
+            <field name="name">Wednesday</field>
+        </record>
+        <record id="spa_working_05" model="spa.working.hours">
+            <field name="name">Thursday</field>
+        </record>
+        <record id="spa_working_06" model="spa.working.hours">
+            <field name="name">Friday</field>
+        </record>
+        <record id="spa_working_07" model="spa.working.hours">
+            <field name="name">Saturday</field>
+        </record>
+
+    </data>
+</odoo>

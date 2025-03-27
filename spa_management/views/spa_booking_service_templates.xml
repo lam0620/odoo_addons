@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="spa_booking_service_form" name="Spa Booking Service">
+        <!-- Need for datepicker-vi (calendar i18n vi) -->
+        <script src="/web/static/lib/jquery/jquery.js"></script>
+        <script src='/spa_management/static/src/js/jquery-ui.min.js'></script> 
+        <script src='/spa_management/static/src/js/datepicker-vi.js'></script> <!--For i18n vi for calendar, but now works-->
+        <script>
+            $(function() {
+
+                $( "#datepicker" ).datepicker({
+                    showButtonPanel: true,
+                    minDate: 0, // today or new Date()
+                    onSelect: function (date, datepicker) {
+                        if (date != "") {
+                            debugger;
+                            // Clear date input
+                            $('#booking_day_time').val('');  
+                            const selected_date = date; //moment(date, "MM/DD/YYYY").format('DD/MM/YYYY') // datepicker date format: MM/DD/YYYY
+
+                            // Set to hidden 'selected_date'                    
+                            $('#booking_date').val(selected_date);                        
+                            
+                            // Submit data
+                            const data = {
+                                product_id : $('#product_id').val(),
+                                product_quantity: $('#product_quantity').val(),
+                                booking_staff: $('#booking_staff').val(),
+                                booking_date: selected_date
+
+                            };
+                            // Call Ajax get
+                            doAjax("/page/spa_management/spa_booking_service_form", "get", data);
+                        
+                        }
+                    }
+
+                });    
+
+                // Set i18n vi
+                $("#datepicker").datepicker( $.datepicker.regional[ "vi" ] );
+
+                // Set date selected date. Keep selected date when error occurs
+                const setdate = $('#booking_date').val()? $('#booking_date').val(): new Date().toLocaleDateString();
+                $('#datepicker').datepicker('setDate', setdate);
+
+                // Set booking time
+                $("input[type='radio'][id='"+$('#booking_time').val()+"']").prop('checked',true)
+            });
+            
+            function doAjax(url, method, data) {
+                $.ajax({
+                    url :  url,
+                    type: method,
+                    dataType : "html",
+                    data : data,
+                    beforeSend : function(){
+                        $('.spinner-loading').show();
+                    },
+                    complete : function(){
+                        $('.spinner-loading').hide();
+                    },            
+                    success: function (data){
+                        //console.log("SUCCESS : ", data);
+                        //get id=timeslots from data                            
+                        // set result to current #timeslots
+                        $("#timeslots").html($(data).find('#timeslots').html());
+                    },
+                    error: function (e) {
+
+                        var json = "<h4>Ajax Response</h4><pre>"
+                            + e.responseText + "</pre>";
+                        $('#timeslots').html(json);
+
+                        //console.log("ERROR : ", e);
+                    }                        
+                });        
+            }            
+        </script>
+
+        <t t-call="website.layout">
+            <div class="container" style="margin-top: 15px;margin-bottom: 15px;">
+                <div class="spinner-loading">
+                    <div class="spinner-border text-primary"></div>                    
+                </div>
+                <form t-attf-action="/page/booking_service_register" method="POST">
+                    <input type="hidden" name="booking_date" id="booking_date" t-att-value="booking_date"/>
+                    <input type="hidden" name="booking_time" id="booking_time" t-att-value="booking_time"/>
+
+                    <input type="hidden" name="product_id" id="product_id" t-att-value="product_id" />
+                    <input type="hidden" name="product_quantity" id="product_quantity" t-att-value="product_quantity" />
+                    <input type="hidden" class="product_duration" name="product_duration" t-att-value="product_duration" />
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5>BOOKING</h5>
+                            <hr/>                       
+                            <t t-if="error" t-foreach="error.get('error_message', [])" t-as="err">
+                                <h5 class="text-danger" t-esc="err" />
+                            </t>
+                            
+                            <div t-attf-class="mb-3 col-lg-12">
+                                <label for="timeslots" class="form-label">Booking Date</label>
+                                <div id="datepicker"></div>
+                                <!-- <div id='calendar' t-attf-class="mb-3 col-lg-12"></div> -->
+                            </div>
+                            <div t-attf-class="mb-3 col-lg-12">
+                                <label for="booking_staff" class="form-label label-optional">Staff/Specialist</label>
+                                <select class="form-select" id="booking_staff" name="booking_staff">
+                                    <!-- <option value="">Any</option> --> 
+                                    <t t-foreach="spa_employee_obj" t-as="employee">                                    
+                                        <option t-att-value="employee.id" t-esc="employee.name" t-att-selected="employee.id == booking_staff"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div t-attf-class="mb-3 col-lg-12">
+                                <label for="timeslots" class="form-label">Time Slot</label>
+                                <ul id='timeslots' >
+                                    <t t-foreach="timeslots" t-as="item">
+                                        <t t-if="item['status'] == 'booked'">
+                                            <li t-attf-class="booked">
+                                                <!-- <input type="radio" name="time" t-attf-id="#{item['time']}" t-att-value="item['time']"/> -->
+                                                <label t-attf-for="#{item['time']}"><span class="label-time"><t t-out="item['time']"/></span><span class="label-status">Booked</span></label>
+                                            </li>
+                                        </t>
+                                        <!--item['status'] == 'unbookable'-->
+                                        <t t-if="item['status'] == 'unbookable'">
+                                            <li t-attf-class="unbookable">
+                                                <!-- <input type="radio" name="time['time']" t-attf-id="#{item['time']}" t-att-value="item['time']"/> -->
+                                                <label t-attf-for="#{item['time']}"><span class="label-time"><t t-out="item['time']"/></span><span class="label-status">Unbookable</span></label>
+                                            </li>
+                                        </t>
+                                        <!-- Available time-->
+                                        <t t-if="item['status'] == 'available'">
+                                            <li t-attf-class="available">
+                                                <input type="radio" name="item['time']" t-attf-id="#{item['time']}" t-att-value="item['time']"/>
+                                                <label t-attf-for="#{item['time']}" class="available">
+                                                    <span class="label-time"><t t-out="item['time']"/></span>
+                                                    <span class="label-status">Available</span>
+                                                </label>
+                                            </li>
+                                        </t>
+                                    </t>
+                                </ul>
+                            </div>
+                            <div t-attf-class="mb-3 col-lg-12">
+                                <label for="booking_day_time" class="form-label">Selected DateTime</label>
+                                <input type="text" name="booking_day_time" id="booking_day_time" t-attf-class="form-control #{error.get('booking_day_time') and 'is-invalid' or ''}" t-att-value="book['booking_day_time']" readonly="true" />
+                            </div>                        
+                            <div t-attf-class="mb-3 col-lg-12">                       
+                                <label for="fullname" class="form-label">Full name</label>
+                                <input type="text" id="fullname" t-attf-class="form-control #{error.get('fullname') and 'is-invalid' or ''}" placeholder="Enter full name" name="fullname" t-att-value="book['fullname']"/>
+                            </div>
+                            <div t-attf-class="mb-3 col-lg-12">
+                                <label for="phonenumber" class="form-label">Phone</label>
+                                <input type="text" id="phonenumber" t-attf-class="form-control #{error.get('phonenumber') and 'is-invalid' or ''}" placeholder="Enter phone" name="phonenumber" t-att-value="book['phonenumber']" />
+                            </div>
+                            <div t-attf-class="mb-3 col-lg-12">
+                                <label for="email" class="form-label label-optional">Email</label>
+                                <input type="email" id="email" t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}" placeholder="Enter email" name="email" t-att-value="book['email']"/>
+                            </div>
+                            <div t-attf-class="mb-3 col-lg-12">
+                                <label for="request" class="form-label label-optional">Other request</label>
+                                <textarea type="request" id="request" t-attf-class="form-control" placeholder="Enter request" name="request" t-att-value="book['request']"/>
+                            </div>                        
+
+                        </div>
+                        <div class="col-sm-6">                    
+                            <br/>
+                            <br/>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><strong><t t-out="product_name"/> - <span><t t-out="product_duration"/></span></strong></td>
+                                    <td><span><t t-out="product_quantity"/></span></td>
+                                    <td><t t-out="product_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/></td>
+                                </tr>      
+                                <tr>
+                                    <td colspan="2">Subtotal</td>
+                                    <td><t t-out="product_total" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><strong>Total</strong></td>
+                                    <td><strong><t t-out="product_total" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/></strong></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-sm-6" style = "text-align: center;">
+                            <button type="submit" id="" class="btn btn-primary" style="width: 30%;">Book</button>
+                        </div>
+                        <div class="col-sm-6"></div>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+    <template id="spa_booking_service_thank_you" name="Thank you">
+        <t t-call="website.layout">
+            <form>
+                <div style="text-align: center;padding: 125px;">
+                    <h1>Thank you for your booking</h1>
+                    <p>We will check availability, and then we will contact you to confirm it within a few minutes.</p>
+                </div>
+            </form>
+        </t>
+    </template>
+</odoo>

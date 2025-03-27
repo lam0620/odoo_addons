@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="spa_website_sale_booking_templates" inherit_id="website_sale.product" name="Booking Button" priority="20">
+        <xpath expr="//div[@id='add_to_cart_wrap']" position="replace">
+            <t t-if="product_variant.available_booking and product_variant.type =='service'">
+                <a role="button" id="book_now" t-attf-class="btn btn-primary js_check_product flex-grow-1 #{'btn-lg' if ctaSizeBig else ''}" href="#">
+                    <input type="hidden" class="book_now_product_id" name="book_now_product_id" t-att-value="product_variant.id" />
+                    <span style="font-weight: bold">BOOK NOW</span>
+                </a>
+            </t>
+            <t t-else="">
+                <a role="button" id="add_to_cart" t-attf-class="btn btn-primary js_check_product a-submit flex-grow-1 #{'btn-lg' if ctaSizeBig else ''}" href="#">
+                    <i class="fa fa-shopping-cart me-2"/>
+                    <span style="font-weight: bold">ADD TO CART</span>
+                </a>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[@id='o_product_terms_and_share']" position="attributes">
+            <t t-if="product_variant.available_booking and product_variant.type =='service'">
+                <attribute name="t-att-style">'display: none !important;'</attribute>
+            </t>   
+            <!-- <t t-else="">
+                <attribute name="t-att-style">'display: block;'</attribute>
+            </t> -->
+        </xpath>      
+
+        <xpath expr="//div[@id='product_details']" position="inside">
+            <t t-if="product_variant.available_booking and product_variant.type =='service'">
+                <div class="h4 mt-3 mb-0 d-flex flex-shrink-0" contenteditable="false">
+                    <t t-snippet-call="website.s_share">
+                        <t t-set="_exclude_share_links" t-value="['whatsapp', 'linkedin']"/>
+                        <t t-set="_no_title" t-value="True"/>
+                        <t t-set="_classes" t-valuef="text-lg-end"/>
+                        <t t-set="_link_classes" t-valuef="mx-1 my-0"/>
+                    </t>
+                </div>
+            </t>
+        </xpath>           
+    </template>
+</odoo>

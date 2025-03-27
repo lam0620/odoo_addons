@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+  <t t-name="SpaDashboardMain">
+    <div class="spa_dashboards">
+      <div class="container-fluid spa_spa_dashboard">
+      </div>
+    </div>
+  </t>
+  <t t-name="SpaSpaDashBoard">
+    <link rel="stylesheet" href="/spa_management/static/src/css/spa_dashboard.css"/>
+    <div class="row main-section">
+      <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 spa_spa_bookings spa spa_bookings">
+        <div class="spa-card">
+          <div class="spa-card-body">
+            <div class="stat-widget-one">
+              <div class="stat-icon">
+                <i class="fa fa-calendar"/>
+              </div>
+              <div class="stat-content">
+                <div class="stat-text">Total bookings</div>
+                <div class="stat-digit" id="bookings_count">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 spa_spa_bookings_today spa spa_bookings_today">
+        <div class="spa-card">
+          <div class="spa-card-body">
+            <div class="stat-widget-one">
+              <div class="stat-icon">
+                <i class="fa fa-tasks"/>
+              </div>
+              <div class="stat-content">
+                <div class="stat-text">Today's bookings</div>
+                <div class="stat-digit" id="bookings_today_count">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 spa_spa_orders spa spa_orders">
+        <div class="spa-card">
+          <div class="spa-card-body">
+            <div class="stat-widget-one">
+              <div class="stat-icon">
+                <i class="fa fa-shopping-cart"/>
+              </div>
+              <div class="stat-content">
+                <div class="stat-text">Total Orders</div>
+                <div class="stat-digit" id="orders_count">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 spa_spa_sales spa spa_sales">
+        <div class="spa-card">
+          <div class="spa-card-body">
+            <div class="stat-widget-one">
+              <div class="stat-icon">
+                <i class="fa fa-money"/>
+              </div>
+              <div class="stat-content">
+                <div class="stat-text">Sales</div>
+                <div class="stat-digit" id="recent_count">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      <div class="col-sm-6 col-md-3-12 col-md-6 col-lg-3 spa_spa_clients spa spa_clients">
+        <div class="spa-card">
+          <div class="spa-card-body">
+            <div class="stat-widget-one">
+              <div class="stat-icon">
+                <i class="fa fa-user "/>
+              </div>
+              <div class="stat-content">
+                <div class="stat-text">Spa Clients</div>
+                <div class="stat-digit" id="clients_count">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+    </div>
+    <article role="main" id="chairs_dashboard_view">
+      <!--filled from js-->
+    </article>
+  </t>
+</templates>

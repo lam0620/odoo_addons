@@ -1,0 +1,180 @@
+/*
+.o_calendar_widget .fc-timeline .fc-widget-header{
+    border-color: #ddd;
+}
+
+.o_calendar_widget .fc-timeline .fc-widget-content{
+    border-left-color: #dee2e6;
+}
+
+.o_calendar_renderer .fc-view .fc-body .fc-event-container .fc-event.o_cw_custom_highlight_resourceTimelineDay{
+    box-shadow: 0 12px 12px -5px rgba(255, 0, 0, 0.3);
+    z-index: 10 !important;
+    opacity: 1;
+}
+*/
+
+/* Experience customer - Purple*/
+.o_calendar_renderer .fc-view .o_calendar_color_experience.fc-event {
+    color: black;
+    opacity: 1;
+    background: #efadef !important;
+}
+
+/* Retail customer - Orange*/
+.o_calendar_renderer .fc-view .o_calendar_color_retail.fc-event {
+    color: black;
+    opacity: 1;
+    background: #f7c363 !important;
+}
+
+/* Use previous order customer - Blue*/
+.o_calendar_renderer .fc-view .o_calendar_color_use_previous_order.fc-event {
+    color: black;
+    opacity: 1;
+    background: #75e4ec !important;
+}
+
+/* Break time - Gray*/
+.o_calendar_renderer .fc-view .o_calendar_color_break_time.fc-event {
+  color: black;
+  opacity: 1;
+  background: #A9A9A9 !important;
+}
+
+/* At home customer - Yellow*/
+.o_calendar_renderer .fc-view .o_calendar_color_home.fc-event {
+    color: black;
+    opacity: 1;
+    background: #e7e75a !important;
+}
+
+/* ================================ State =============================================== */
+/* State - Confirmed/Approved - Check Green*/
+/* .o_calendar_renderer .fc-view .o_calendar_color_confirmed.fc-event {
+    border-color: #0bb70b !important;
+} */
+.o_calendar_renderer .fc-view .o_calendar_color_confirmed.fc-event::before,
+.o_calendar_renderer .fc-view .o_calendar_color_confirmed.fc-event::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.o_calendar_renderer .fc-view .o_calendar_color_confirmed.fc-event::after {
+  /* content: '\2713'; */
+  font-size: 9px;
+  line-height: 9px;
+  font-weight: bold;
+  color: white;
+}
+
+.o_calendar_renderer .fc-view .o_calendar_color_confirmed.fc-event::before {
+  border-radius: 0;
+  border-width: 12px;
+  border-right-color: #0bb70b;
+  border-bottom-color: #0bb70b; 
+}
+
+/* State - Checked-in - Check grey*/
+/* .o_calendar_renderer .fc-view .o_calendar_color_checked-in.fc-event {
+    border-color: darkgrey !important;
+} */
+
+.o_calendar_renderer .fc-view .o_calendar_color_checked-in.fc-event::before,
+.o_calendar_renderer .fc-view .o_calendar_color_checked-in.fc-event::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.o_calendar_renderer .fc-view .o_calendar_color_checked-in.fc-event::after {
+  content: '\2713';
+  font-size: 9px;
+  line-height: 9px;
+  font-weight: bold;
+  color: white;
+}
+
+.o_calendar_renderer .fc-view .o_calendar_color_checked-in.fc-event::before {
+  border-radius: 0;
+  border-width: 12px;
+  /* border-right-color: #a59e9e;
+  border-bottom-color: #a59e9e; */
+  border-right-color: #0bb70b;
+  border-bottom-color: #0bb70b;    
+}
+
+/* State - Invoiced - add $, light green*/
+/* .o_calendar_renderer .fc-view .o_calendar_color_checked-in.fc-event {
+    border-color: darkgrey !important;
+} */
+
+.o_calendar_renderer .fc-view .o_calendar_color_invoiced.fc-event::before,
+.o_calendar_renderer .fc-view .o_calendar_color_invoiced.fc-event::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.o_calendar_renderer .fc-view .o_calendar_color_invoiced.fc-event::after {
+  content: '$';
+  font-size: 9px;
+  line-height: 9px;
+  font-weight: bold;
+  color: white;
+}
+
+.o_calendar_renderer .fc-view .o_calendar_color_invoiced.fc-event::before {
+  border-radius: 0;
+  border-width: 12px;
+  /* border-right-color: #a59e9e;
+  border-bottom-color: #a59e9e; */
+  border-right-color: #0bb70b;
+  border-bottom-color: #0bb70b;  
+}
+
+/* State - Rejected - X Red*/
+/* .o_calendar_renderer .fc-view .o_calendar_color_rejected.fc-event {
+    border-color: red !important;
+} */
+.o_calendar_renderer .fc-view .o_calendar_color_rejected.fc-event::before,
+.o_calendar_renderer .fc-view .o_calendar_color_rejected.fc-event::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.o_calendar_renderer .fc-view .o_calendar_color_rejected.fc-event::after {
+  content: '\274c';
+  font-size: 6px;
+  line-height: 7px;
+  font-weight: bold;
+  color: white;
+}
+
+.o_calendar_renderer .fc-view .o_calendar_color_rejected.fc-event::before {
+  border-radius: 0;
+  border-width: 12px;
+  /* border-right-color: #a59e9e;
+  border-bottom-color: #a59e9e; */
+  border-right-color: #0bb70b;
+  border-bottom-color: #0bb70b;   
+}
+/*
+.o_calendar_renderer .fc-event .fc-bg {
+    background: #FFFF00;    
+}
+*/
